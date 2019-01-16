@@ -1,0 +1,23 @@
+server:
+  port: 10086
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10087/eureka,http://127.0.0.1:10086/eureka
+    register-with-eureka: false
+    fetch-registry: false
+spring:
+  application:
+    name: eureka-server # 微服务名称，在Eureka中也叫serviceId
+
+---
+server:
+  port: 10087 # 端口
+spring:
+  application:
+    name: eureka-server # 应用名称，会在Eureka中显示
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka,http://127.0.0.1:10087/eureka
+
